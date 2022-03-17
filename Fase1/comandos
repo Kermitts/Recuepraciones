@@ -1,1 +1,19 @@
-a
+#Crear usuario administrador
+  #Primero creo el usuario
+  net user gmanuel Chubbyemu01 /add
+ 
+  #Ahora lo agrego al grupo de administradores
+  net local group administradores gmanuel /add
+  
+#Ajustar automaticamente la hora del sistema
+w32tm /config /manualpeerlist:"0.es.pool.ntp.org time.google.com" /syncfromflags:manual /update
+
+#Configurar IPv4
+
+
+#Desactivar IPv6
+
+#Habilitar actualizaciones automaticas
+
+#Comprobar SID del equipo
+
