@@ -1,5 +1,3 @@
-#He usado estos comandos en Windows server GUI y Core ya que era mas rapido que por interfaz grafica
-
 #Crear usuario administrador
   #Primero creo el usuario
   net user gmanuel Chubbyemu01 /add
@@ -21,3 +19,6 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpd
 
 #Comprobar SID del equipo
 whoami /user
+
+#Ver tarjeta de red del servidor
+ipconfig /all
