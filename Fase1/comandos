@@ -14,8 +14,10 @@ w32tm /config /manualpeerlist:"0.es.pool.ntp.org time.google.com" /syncfromflags
 
 
 #Desactivar IPv6
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters" /v DisabledComponents /t REG_DWORD /d 255 /f
 
 #Habilitar actualizaciones automaticas
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v AUOptions /t REG_DWORD /d 0 /f
 
 #Comprobar SID del equipo
 whoami /user
