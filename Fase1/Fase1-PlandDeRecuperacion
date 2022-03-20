@@ -1,18 +1,26 @@
+#Comandos usados en la terminal cmd
+
 #Crear usuario administrador
   #Primero creo el usuario
   net user gmanuel Chubbyemu01 /add
  
   #Ahora lo agrego al grupo de administradores
   net local group administradores gmanuel /add
-  
+
+#Cambiar nombre del equipo
+netdom renamecomputer "nombre-actual" /newname iesjaume1.es
+
 #Ajustar automaticamente la hora del sistema
 w32tm /config /manualpeerlist:"0.es.pool.ntp.org time.google.com" /syncfromflags:manual /update
 
-#Configurar IPv4
+#Listar todas las iIPs y sus adaptadores de red
+ipconfig /all
 
+#Configurar ip de IPv4
+netsh interface ipv4 set address name="Ethernet" static 192.168.1.151 255.255.255.0 192.168.1.101
 
 #Desactivar IPv6
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters" /v DisabledComponents /t REG_DWORD /d 255 /f
+ reg add "HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters" /v DisabledComponents /t REG_DWORD /d 255 /f
 
 #Habilitar actualizaciones automaticas
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v AUOptions /t REG_DWORD /d 0 /f
@@ -20,5 +28,5 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpd
 #Comprobar SID del equipo
 whoami /user
 
-#Ver tarjeta de red del servidor
-ipconfig /all
+#Desactivar firewall
+netsh advfirewall set allprofiles state off
